@@ -9,7 +9,7 @@ pipeline {
             }
 
         stage('Scan image with Aqua') {
-        aqua locationType: 'local', localImage: 'demouser/appimage:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
+        aqua locationType: 'local', localImage: 'demouser/devops:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false
         }
 
         stage('Push to registry') {
@@ -17,7 +17,7 @@ pipeline {
         }
 
         stage('Scan image with Aqua') {
-        aqua locationType: 'local', localImage: 'demouser/appimage:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false, register: true, registry: "Docker Hub"
+        aqua locationType: 'local', localImage: 'demouser/devops:${BUILD_NUMBER}', hideBase: false,  notCompliesCmd: '', onDisallowed: 'fail', showNegligible: false, register: true, registry: "Docker Hub"
         }
 
         stage('DeployToStage') {
